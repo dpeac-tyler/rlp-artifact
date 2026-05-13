@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certificate/License/Permit Section - RLP</title>
+  <title>Certificate Dates - RLP</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -114,11 +114,11 @@
         <div class="app-builder-sidebar">
           <div class="usa-step-indicator usa-step-indicator--sidebar" aria-label="step progress">
             <ol class="usa-step-indicator__segments">
-              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
-                <span class="usa-step-indicator__segment-label">Certificate Section</span>
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--complete">
+                <a class="usa-step-indicator__segment-label" href="certificate-section.html">Certificate Section</a>
               </li>
               <div class="step-connector-line"></div>
-              <li class="usa-step-indicator__segment">
+              <li class="usa-step-indicator__segment usa-step-indicator__segment--current">
                 <span class="usa-step-indicator__segment-label">Certificate Dates</span>
               </li>
               <div class="step-connector-line"></div>
@@ -135,16 +135,53 @@
 
         <!-- Right content area -->
         <div class="app-builder-content">
-          <h1 class="app-builder-content__heading">Certificate/License/Permit Section</h1>
+          <h1 class="app-builder-content__heading">Certificate/License/Permit Dates (Original)</h1>
 
           <p class="app-builder-content__text app-builder-content__text--lg-margin">
-            In this section you will be customizing the Certificate/License/Permit. First, you will choose between the
-            different date options and then you will select how you want the certificate to appear (You can pick from a
-            few we prepared for you). You also have the option to add a disclaimer text.
+            Choose the Dates that the user's Certificate, License, Permit will be valid. Make your choice then click the next button.
           </p>
 
-          <div class="app-builder-button-container" style="justify-content: flex-end;">
-            <a href="certificate-dates.html" class="usa-button">Next</a>
+          <div class="section-indicator" data-section="1">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">Start Date</h2>
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Choose the start date for the first issuance. <span class="field-required">Required</span></legend>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="start-date-issue" type="radio" name="start-date" value="issue-date">
+                <label class="usa-radio__label" for="start-date-issue">Issue Date</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="start-date-fixed" type="radio" name="start-date" value="fixed-date">
+                <label class="usa-radio__label" for="start-date-fixed">Fixed Date</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="start-date-user" type="radio" name="start-date" value="user-entered-date">
+                <label class="usa-radio__label" for="start-date-user">User Entered Date</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="section-indicator" data-section="2">
+            <h2 class="app-builder-content__subheading" style="font-size: 2.2rem;">End Date</h2>
+            <fieldset class="usa-fieldset">
+              <legend class="usa-label">Choose the end date for this license. <span class="field-required">Required</span></legend>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="end-date-fixed" type="radio" name="end-date" value="fixed-date">
+                <label class="usa-radio__label" for="end-date-fixed">Fixed Date</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="end-date-timeframe" type="radio" name="end-date" value="timeframe">
+                <label class="usa-radio__label" for="end-date-timeframe">Timeframe</label>
+              </div>
+              <div class="usa-radio">
+                <input class="usa-radio__input" id="end-date-conditional" type="radio" name="end-date" value="conditional-date">
+                <label class="usa-radio__label" for="end-date-conditional">Conditional Date</label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="app-builder-button-container">
+            <a href="certificate-section.html" class="usa-button usa-button--outline">Back</a>
+            <a href="#" class="usa-button">Next</a>
           </div>
         </div>
       </div>
