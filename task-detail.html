@@ -151,6 +151,7 @@
               <h2>Personal Information</h2>
               <p><strong>First Name:</strong> <span id="first-name">John</span></p>
               <p><strong>Last Name:</strong> <span id="last-name">Smith</span></p>
+              <p><strong>Email Address:</strong> <span id="email-address">jsmith1234@gmail.com</span></p>
             </div>
 
             <h3 class="usa-accordion__heading">
@@ -255,6 +256,94 @@
               <textarea class="usa-textarea" id="task-comments" name="task-comments" rows="8"></textarea>
               <div class="character-counter">2500 characters available</div>
               <button type="button" class="usa-button margin-top-2">Save</button>
+            </div>
+
+            <div class="tab-panel" id="submission-panel">
+              <h3 class="margin-top-2">Application Information</h3>
+              <p class="margin-y-0"><strong>Agency:</strong> Department of Natural Resources</p>
+              <p class="margin-y-0"><strong>License Type:</strong> DNR Individual (label)</p>
+              <p class="margin-y-0"><strong>Application Type:</strong> Original (Many Overlapping)</p>
+              <p class="margin-y-0"><strong>Application:</strong> Document Upload with review</p>
+              <p class="margin-y-0"><strong>Submission Number:</strong> 700024700</p>
+              <p class="margin-y-0"><strong>Status:</strong> Pending</p>
+              <p class="margin-y-0"><strong>Submitted Date:</strong> 01/26/2021 02:12 PM</p>
+              <p class="margin-y-0"><strong>Submitted By:</strong> qa.ind.101</p>
+
+              <h3 class="margin-top-3">Personal Information</h3>
+              <p class="margin-y-0"><strong>First Name:</strong> James</p>
+              <p class="margin-y-0"><strong>Last Name:</strong> Kennedy</p>
+
+              <h3 class="margin-top-3">Contact Information</h3>
+              <p class="margin-y-0"><strong>Phone Number:</strong> (561) 591-5615</p>
+              <p class="margin-y-0"><strong>Email Address:</strong> lisa.benavides@egov.com</p>
+
+              <h3 class="margin-top-3">Mailing Address</h3>
+              <p class="margin-y-0"><strong>Address Line 1:</strong> 100 Congress Ave</p>
+              <p class="margin-y-0"><strong>City:</strong> Austin</p>
+              <p class="margin-y-0"><strong>State:</strong> TX</p>
+              <p class="margin-y-0"><strong>Zip Code:</strong> 78780</p>
+            </div>
+
+            <div class="tab-panel" id="documents-panel">
+              <h3 class="margin-top-2">Upload Instructions</h3>
+              <p>File size and type limitations per attachment: 50 MB for txt, csv, png, jpg, jpeg, pdf, doc, xls, docx, xlsx.</p>
+
+              <div class="usa-accordion usa-accordion--bordered margin-top-3">
+                <h3 class="usa-accordion__heading">
+                  <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="doc-icon-key-content">
+                    Icon Key
+                  </button>
+                </h3>
+                <div id="doc-icon-key-content" class="usa-accordion__content usa-prose" hidden="">
+                  <p class="text-bold margin-0 margin-bottom-2">Options and Control Types</p>
+                  <div class="icon-key-grid">
+                    <div class="icon-key-item">
+                      <img src="assets/download-certificate.png" alt="" width="24" height="24">
+                      <span>- Download Document</span>
+                    </div>
+                    <div class="icon-key-item">
+                      <img src="assets/upload-document.png" alt="" width="24" height="24">
+                      <span>- Upload Document</span>
+                    </div>
+                    <div class="icon-key-item">
+                      <img src="assets/view-history.png" alt="" width="24" height="24">
+                      <span>- View Version History</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="margin-top-3">Documents</h3>
+              <table class="usa-table usa-table--borderless usa-table--striped" style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th scope="col" role="columnheader" aria-sort="none">Name <span class="sort-arrows"></span></th>
+                    <th scope="col" role="columnheader" aria-sort="none">Document Type/Sub Type <span class="sort-arrows"></span></th>
+                    <th scope="col" role="columnheader" aria-sort="none">Uploaded By <span class="sort-arrows"></span></th>
+                    <th scope="col" role="columnheader" aria-sort="none">Uploaded Date <span class="sort-arrows"></span></th>
+                    <th scope="col" role="columnheader">Controls</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>my-photo.jpg</td>
+                    <td>Photo ID</td>
+                    <td>jsmith1234</td>
+                    <td>01/26/2021 02:14 PM</td>
+                    <td>
+                      <a href="#" class="icon-button" aria-label="Download">
+                        <img src="assets/download-certificate.png" alt="Download" width="30" height="30">
+                      </a>
+                      <a href="#" class="icon-button" aria-label="Upload" style="margin-left: 0.5rem;">
+                        <img src="assets/upload-document.png" alt="Upload" width="30" height="30">
+                      </a>
+                      <a href="#" class="icon-button" aria-label="View Version History" style="margin-left: 0.5rem;">
+                        <img src="assets/view-history.png" alt="View Version History" width="30" height="30">
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -380,6 +469,18 @@
         initiateInspectionBtn.href = `initiate-inspection.html?id=${taskId}`;
       }
     }
+
+    // Tab switching
+    document.querySelectorAll('.horizontal-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.horizontal-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        this.classList.add('active');
+        var panelId = this.textContent.trim().toLowerCase() + '-panel';
+        var panel = document.getElementById(panelId);
+        if (panel) panel.classList.add('active');
+      });
+    });
 
     // Accordion functionality
     document.querySelectorAll('.usa-accordion__button').forEach(button => {
