@@ -344,40 +344,6 @@
               </div>
             </fieldset>
 
-            <div id="rich-text-5bb" style="margin-left: 6rem; margin-top: 1.5rem; display: none;">
-              <div class="usa-form-group" style="margin-bottom: 20px;">
-                <label class="usa-label" for="pocket-photo-upload-instructions">Document Upload Instructions <span class="field-required">Required</span></label>
-                <div class="mock-editor">
-                  <div class="mock-editor__toolbar">
-                    <button type="button" class="mock-editor__btn" title="Bold"><strong>B</strong></button>
-                    <button type="button" class="mock-editor__btn" title="Italic"><em>I</em></button>
-                    <button type="button" class="mock-editor__btn" title="Underline"><u>U</u></button>
-                    <span class="mock-editor__separator">|</span>
-                    <button type="button" class="mock-editor__btn" title="Numbered List">1.</button>
-                    <button type="button" class="mock-editor__btn" title="Bullet List">•</button>
-                    <span class="mock-editor__separator">|</span>
-                    <button type="button" class="mock-editor__btn" title="Link">🔗</button>
-                  </div>
-                  <textarea class="mock-editor__textarea" id="pocket-photo-upload-instructions" name="pocket-photo-upload-instructions" rows="6"></textarea>
-                </div>
-              </div>
-              <div class="usa-form-group">
-                <label class="usa-label" for="pocket-photo-upload-disclaimer">Document Upload Disclaimer <span class="field-required">Required</span></label>
-                <div class="mock-editor">
-                  <div class="mock-editor__toolbar">
-                    <button type="button" class="mock-editor__btn" title="Bold"><strong>B</strong></button>
-                    <button type="button" class="mock-editor__btn" title="Italic"><em>I</em></button>
-                    <button type="button" class="mock-editor__btn" title="Underline"><u>U</u></button>
-                    <span class="mock-editor__separator">|</span>
-                    <button type="button" class="mock-editor__btn" title="Numbered List">1.</button>
-                    <button type="button" class="mock-editor__btn" title="Bullet List">•</button>
-                    <span class="mock-editor__separator">|</span>
-                    <button type="button" class="mock-editor__btn" title="Link">🔗</button>
-                  </div>
-                  <textarea class="mock-editor__textarea" id="pocket-photo-upload-disclaimer" name="pocket-photo-upload-disclaimer" rows="6"></textarea>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div class="section-indicator" data-section="6">
@@ -425,7 +391,6 @@
         toggle('fieldset-5aa', false);
         toggle('fieldset-5bb', false);
         toggle('rich-text-5aa', false);
-        toggle('rich-text-5bb', false);
       }
     });
   });
@@ -453,14 +418,7 @@
       toggle('fieldset-5bb', yes);
       if (!yes) {
         resetRadios('pocket-card-photo');
-        toggle('rich-text-5bb', false);
       }
-    });
-  });
-
-  document.querySelectorAll('input[name="pocket-card-photo"]').forEach(function(r) {
-    r.addEventListener('change', function() {
-      toggle('rich-text-5bb', this.value === 'yes');
     });
   });
 </script>
